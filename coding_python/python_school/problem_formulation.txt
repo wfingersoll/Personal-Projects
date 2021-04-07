@@ -1,0 +1,71 @@
+Missionary and Cannibal:
+
+    State Description:
+        Two 1D arrays, one is filled with cannibals and missionaries, other is empty. 
+        A value of 1 represents a missionary, a value of -1 represents a cannibal.
+
+    Initial State:
+        side_a: [1,-1,1,-1,1,-1]
+        side_b: []
+
+    Goal State:
+        side_a: []
+        side_b: [Any pattern of three values of -1, and three values of 1]
+
+
+    Actions:
+        Move - Moves value(s) at specified index/indicies to specified array.
+        Count - Returns the ratio of missionaries to cannibal for specified array.
+
+    Transition Model:
+        Returns both 1D arrays in current state.
+
+    Path Cost
+        Move: 1-2 depending on number of indicies moved.
+        Count: 1, nothing is altered.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Grid Problem:
+
+    State Description:
+        A 2D array representing a grid. A 0 represents an open space, a 1 represents the current space, and a -1 represents a closed space.
+
+    Initial state:
+        
+        [
+            [1,-1,0,0,0,0],
+            [0,-1,0,-1,-1,-1],
+            [0,0,0,-1,0,0],
+            [0,0,-1,0,0,0],
+            [0,0,0,0,-1,0],
+            [-1,-1,0,-1,0,0],
+        ]
+
+    Goal state:
+
+        [
+            [0,-1,0,0,0,0],
+            [0,-1,0,-1,-1,-1],
+            [0,0,0,-1,0,0],
+            [0,0,-1,0,0,0],
+            [0,0,0,0,-1,0],
+            [-1,-1,0,-1,0,1],
+        ]
+
+    Actions:
+        Check - checks specified index to see if value is 0, thus moveable
+        North - check value, then swaps index [x,y] for index [x,y+1]
+        North East - check value, then swaps index [x,y] for index [x+1,y+1]
+        East - check value, then swaps index [x,y] for index [x+1,y]
+        South East - check value, then swaps index [x,y] for index [x+1,y-1]
+        South - check value, then swaps index [x,y] for index [x,y-1]
+        South West - check value, then swaps index [x,y] for index [x-1,y-1]
+        West - check value, then swaps index [x,y] for index [x-1,y]
+        North West check value, then swaps index [x,y] for index [x-1,y+1]
+
+    Transition Model:
+        Returns 2D array with the swapped indecies.
+
+    Path Cost:
+        All actions - 1
